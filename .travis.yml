@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t momo611/docker-practice -f Dockerfile.dev .
+  - travis_wait docker build -t momo611/docker-practice -f Dockerfile.dev .
 
 script:
   - docker run momo611/docker-practice npm run test -- --coverage
