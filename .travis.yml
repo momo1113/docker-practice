@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run momo611/docker-practice npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region:
+  app: //same name as elasticbeanstalk
+  env: "Docker-"Docker-env"
+  bucket_name: //from s3 bucket
+  bucket_path: //bucket-path
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
